@@ -1,7 +1,7 @@
 # a gui phones\emails extractor
 import re
 # the phone regex :
-PhoneRe = re.compile(r'''( 
+PhoneRe = re.compile(r'''(
 #555-555-1234 or 555-1234 or (555)-555-1234 << american numbers examples
 (((\d\d\d) | (\(\d\d\d\)))? # d meaning digit | meaning or ? meaning optional and (meaning group)
 (\s|-)   #seprators \s mean space and - mean - LOL kidding with you bro
@@ -9,13 +9,13 @@ PhoneRe = re.compile(r'''(
 -        #another separators
 \d\d\d\d\s)? #last digits \s means space
 ((\d\d\d)?(-)?(0?\d{9}))? # this is regex for arabs countries code \d{9} short cut for \d\d\d\d\d\d\d\d\d
-)''',re.VERBOSE)
-#VERBOSE for writing commends inside the triple quotations
+)''', re.VERBOSE)
+# VERBOSE for writing commends inside the triple quotations
 # re.compile('((\d\d\d) | (\(\d\d\d\)))?(\s|-)\d\d\d-\d\d\d\d') without verbose mode
 
 # emails regex :
-EmailRe = re.compile(r''' 
-# anything@anything.anything << emails examples 
+EmailRe = re.compile(r'''
+# anything@anything.anything << emails examples
 [A-Za-z0-9_.+]+ #name part [create our own regex A-Z all capital letters a-z all small letters _+ some symbols]
 @                # @ symbol
 [A-Za-z0-9_.+]+ # domain part the last (+) means must has something after it like .com or .net
@@ -23,20 +23,20 @@ EmailRe = re.compile(r'''
 
 text = ('''
 
-''') # paste your text here
+''')  # paste your text here
 
-ExtractedP = PhoneRe.findall(text) # findall means start collecting the regex
+ExtractedP = PhoneRe.findall(text)  # findall means start collecting the regex
 ExtractedE = EmailRe.findall(text)
-#print(ExtractedP)
+# print(ExtractedP)
 
 # findall return list of tuples so that why we create this loop try the code without this loop to understand from here
 EveryPhone = []
 for phone in ExtractedP:
     EveryPhone.append(phone[0])
 # to here and don't forget to print ExtractedP not EveryPhone
-#print(EveryPhone)
+# print(EveryPhone)
 # all this to print it in a good format don't be scare
-final = ("phones\n-------------\n"+"\n".join(EveryPhone) + "\nemails\n-------------------\n" +"\n".join(ExtractedE))
-final =final.split()
+final = ("phones\n-------------\n" + "\n".join(EveryPhone) + "\nemails\n-------------------\n" + "\n".join(ExtractedE))
+final = final.split()
 
 print("\n".join(final))
