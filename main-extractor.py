@@ -22,9 +22,6 @@ EmailRe = re.compile(r'''
 ''', re.VERBOSE)
 
 text = ('''
-blskdjskjfsjfjvij 0501024226 and sjjhewusdhiheuhduhsi 966501024226 saijiuhaiuhdsyuhwbauidhsuiha
-504-925-2032 
-Howard Palmer  palme7345@live.com  984-739-5933
 
 ''') # paste your text here
 
